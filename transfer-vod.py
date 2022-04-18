@@ -3,18 +3,17 @@ import os
 import subprocess
 import logging
 from logging.handlers import TimedRotatingFileHandler
-import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # Environment Variables
-INPUT_VOD = "/tmp/test/input"
-OUTPUT_VOD = "/tmp/test/output"
+INPUT_VOD = '/mnt/corpstreaming/transcode/sem_logo/hd/'
+OUTPUT_VOD = '/mnt/ftp/transcode/sem_logo/hd/'
 WGET = "/usr/bin/wget"
-CDN = "http://parc-media01-corpstreaming-tna-mia.terra.com/test/progressive/"
+CDN = 'http://parc-media01-corpstreaming-tna-mia.terra.com/transcode/sem_logo/hd/'
 
 # Log parameters
 TIMESTAMP = datetime.today().strftime("%d-%m-%Y")
-TRANSFER_LOG = "transfer.log"
+TRANSFER_LOG = "/dados/scripts/log/transfer.log"
 
 # Log object
 logger = logging.getLogger()
@@ -33,10 +32,6 @@ logger.addHandler(handler)
 
 # Allowed extensions file
 ALLOWED_EXTENSIONS = [".mp4", ".mov", ".wmv", ".avi", ".mkv", ".m4a", ".m4v"]
-
-# SQLite Database
-DB = sqlite3.connect("transfe-vod.db")
-
 
 def main():
 
