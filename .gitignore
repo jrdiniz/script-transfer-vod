@@ -141,3 +141,5 @@ Pipfile.lock
 
 # Test
 testing.db
+*.mp4.*
+*.mp4
